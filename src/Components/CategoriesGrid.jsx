@@ -1,20 +1,20 @@
 import React from "react";
 
 // Import images
-import food1 from "../assets/Food/food1.png";
-import food2 from "../assets/Food/food2.png";
-import food3 from "../assets/Food/food3.png";
-import food4 from "../assets/Food/food4.png";
-import food5 from "../assets/Food/food5.png";
-import food6 from "../assets/Food/food6.png";
-import food7 from "../assets/Food/food7.png";
-import food8 from "../assets/Food/food8.png";
-import food9 from "../assets/Food/food9.png";
-import food10 from "../assets/Food/food10.png";
-import food11 from "../assets/Food/food11.png";
-import food12 from "../assets/Food/food12.png";
-import food13 from "../assets/Food/food13.png";
-import food14 from "../assets/Food/food14.png";
+import food1 from "../assets/Food/Food1.png";
+import food2 from "../assets/Food/Food2.png";
+import food3 from "../assets/Food/Food3.png";
+import food4 from "../assets/Food/Food4.png";
+import food5 from "../assets/Food/Food5.png";
+import food6 from "../assets/Food/Food6.png";
+import food7 from "../assets/Food/Food7.png";
+import food8 from "../assets/Food/Food8.png";
+import food9 from "../assets/Food/Food9.png";
+import food10 from "../assets/Food/Food10.png";
+import food11 from "../assets/Food/Food11.png";
+import food12 from "../assets/Food/Food12.png";
+import food13 from "../assets/Food/Food13.png";
+import food14 from "../assets/Food/Food14.png";
 
 const categories = [
   { title: "Dog Food", image: food1 },
