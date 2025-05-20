@@ -1,13 +1,13 @@
 import React from "react";
 
 // Import healthcare images
-import health1 from "../assets/Health/health1.png";
-import health2 from "../assets/Health/health2.png";
-import health3 from "../assets/Health/health3.png";
-import health4 from "../assets/Health/health4.png";
-import health5 from "../assets/Health/health5.png";
-import health6 from "../assets/Health/health6.png";
-import health7 from "../assets/Health/health7.png";
+import health1 from "../assets/Health/Health1.png";
+import health2 from "../assets/Health/Health2.png";
+import health3 from "../assets/Health/Health3.png";
+import health4 from "../assets/Health/Health4.png";
+import health5 from "../assets/Health/Health5.png";
+import health6 from "../assets/Health/Health6.png";
+import health7 from "../assets/Health/Health7.png";
 
 const healthcareItems = [
   { title: "Vitamins", image: health1 },
