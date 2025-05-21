@@ -6,9 +6,10 @@ import image3 from "../assets/banner/image3.png";
 import image4 from "../assets/banner/image4.png";
 import image5 from "../assets/banner/image5.png";
 import image6 from "../assets/banner/image6.png";
+import image7 from "../assets/banner/image7.png";
 
 function BannerSection() {
-  const banners = [image1, image2, image3, image4, image5, image6];
+  const banners = [image1, image2, image3, image4, image5, image6, image7];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Function to go to the next banner
@@ -37,7 +38,7 @@ function BannerSection() {
     <div className="relative">
       {/* Banner image */}
       <div
-        className="w-full h-110 bg-cover
+        className="w-full h-120 bg-contain
          bg-center mt-5 bg-no-repeat"
         style={{ backgroundImage: `url(${banners[currentIndex]})` }}
       >

@@ -30,13 +30,9 @@ export default function Navbar() {
         </svg>
       </button>
 
-      {/* <img
-        src="../assets/logos/VET.png"
-        alt="Supertails"
-        className="w-10 h-10"
-      /> */}
+      <img src="../assets/logos/meet.jpg" alt="Vet&Meet" />
 
-      <h1>VET&MEET</h1>
+      {/* <h1>VET&MEET</h1> */}
 
       {/* Search Bar */}
       <div className="relative flex items-center w-1/2 mx-4">
@@ -59,7 +55,7 @@ export default function Navbar() {
       {/* Action Icons */}
       <div className="flex items-center space-x-4">
         {/* Profile */}
-        <button className="flex flex-col items-center text-sm text-gray-700 hover:text-black">
+        <button className="flex flex-col items-center text-sm text-white hover:text-black">
           <FaUser className="text-xl" />
           <span>Profile</span>
         </button>
@@ -67,7 +63,7 @@ export default function Navbar() {
         {/* Delivery */}
         <button
           onClick={toggleModal}
-          className="flex flex-col items-center text-sm text-gray-700 hover:text-black"
+          className="flex flex-col items-center text-sm text-white hover:text-black"
         >
           <FaMapMarkerAlt className="text-xl" />
           <span>Delivery</span>
@@ -76,14 +72,14 @@ export default function Navbar() {
         {/* Call */}
         <a
           href="tel:+18001026886"
-          className="flex flex-col items-center text-sm text-gray-700 hover:text-black"
+          className="flex flex-col items-center text-sm text-white hover:text-black"
         >
           <FaPhoneAlt className="text-xl" />
           <span>Call</span>
         </a>
 
         {/* Cart */}
-        <button className="flex flex-col items-center text-sm text-gray-700 hover:text-black relative">
+        <button className="flex flex-col items-center text-sm text-white hover:text-black relative">
           <FaShoppingCart className="text-xl" />
           <span>Cart</span>
           {/* Optional cart count */}
