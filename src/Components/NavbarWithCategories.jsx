@@ -7,7 +7,81 @@ import {
 } from "react-icons/fa";
 
 const categories = [
-  { name: "Cats", subCategories: ["Food", "Toys", "Grooming"] },
+  {
+    name: "Cats",
+    subCategories: [
+      "Food",
+      "Toys",
+      "Grooming",
+      "Accessories",
+      "Creamy Treats",
+
+      "Jerky Treats",
+      "Crunchy Treats",
+      "Kitty Licks",
+      "Kittos",
+
+      "Dry Food",
+      "Wet Food",
+      "Kitten Food",
+      "Premium Food",
+      "Cat Treats",
+      "Creamy Treats",
+      "Jerky Treats",
+      "Crunchy Treats",
+      "Kitty Licks",
+      "Kittos",
+
+      "Litter",
+      "Litter Boxes & Toilets",
+      "Cleaning & Deodorizers",
+      "Scooper & Waste Disposal",
+      "Scented Litter",
+      "Unscented Litter",
+      "Flushable Litter",
+      "Scoopy #1 Cat Litter",
+
+      "Cat Teasers",
+      "Ball & Chaser Toys",
+      "Catnip Toys",
+      "Plush Toys",
+      "Cat Trees & Scratchers",
+      "Smart & Interactive Toys",
+
+      "Dewormer",
+      "Tick & Fleas",
+      "Skin Care",
+      "Joint Care",
+      "Gut Health",
+      "Cardiac Care",
+      "Kidney Care",
+      "Liver Care",
+      "Eye & Ear",
+      "Respiratory",
+      "Supplements",
+      "Prescription Diet",
+      "Calming And Anxiety",
+      "Oral Care",
+      "GPS Tracker",
+      "Collars",
+      "Leashes",
+      "Harnesses",
+      "Bells & Tags",
+      "Carriers & Travel Supplies",
+      "Cages & Crates",
+      "Summer Clothing",
+      "IPL Jerseys New",
+      "Tshirts & Shirts",
+      "Bandanas & Bowties",
+      "Bells & Tags",
+      "Kurtas",
+      "Dresses",
+      "Lehangas",
+      "Jackets & Sweaters",
+      "Hoodies",
+    ],
+  },
+
   { name: "Dogs", subCategories: ["Leash", "Food", "Training"] },
   { name: "Henlo", subCategories: ["Bird Feed", "Accessories"] },
   { name: "Pharmacy", subCategories: ["Medicines", "Supplements"] },
@@ -32,7 +106,7 @@ export default function NavbarWithCategories() {
       {/* TOP NAVBAR */}
       <div
         style={{ backgroundColor: "#FFA500" }}
-        className="shadow-md p-4 flex flex-col md:flex-row md:justify-between items-center space-y-4 md:space-y-0 md:space-x-4"
+        className="shadow-md p-4 flex flex-col md:flex-row md:justify-between items-center space-y-4 md:space-y-0 md:space-x-4 sticky top-0 z-50"
       >
         {/* Left: Logo */}
         <div className="flex items-center justify-between w-full md:w-auto">
@@ -63,7 +137,7 @@ export default function NavbarWithCategories() {
           <input
             type="search"
             placeholder="Search for products & brands"
-            className="w-full border border-black rounded-md px-4 py-2 pl-10 focus:outline-none"
+            className="w-full border border-white rounded-md px-4 py-2 pl-10 focus:outline-none"
           />
           <svg
             className="absolute left-5 w-5 h-5 text-gray-500"
@@ -106,39 +180,45 @@ export default function NavbarWithCategories() {
         </div>
       </div>
 
-      {/* CATEGORY NAV - DESKTOP */}
-      <nav className="bg-white shadow-md hidden md:flex px-8 py-4 gap-12">
-        {categories.map((cat, index) => (
-          <div key={index} className="relative">
-            <button
-              onClick={() => toggleCategory(index)}
-              className="text-gray-800 font-medium hover:text-blue-600 focus:outline-none"
-            >
-              {cat.name}
-            </button>
-            {openIndex === index && (
-              <div className="absolute z-10 mt-2 w-48 bg-white border rounded-lg shadow-lg">
-                <ul className="py-2 text-sm text-gray-700">
-                  {cat.subCategories.map((item, i) => (
-                    <li
-                      key={i}
-                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+      {/* CATEGORY NAV - DESKTOP - STICKY HOVERABLE DROPDOWNS */}
+      <nav className="bg-white shadow-md sticky top-0 z-50 hidden md:block ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between sm">
+          <div className="hidden md:flex space-x-20 text-gray-800 font-medium">
+            {categories.map((cat, index) => (
+              <div key={index} className="relative group">
+                <button className="hover:text-blue-600">
+                  {cat.name} {/* ✅ changed from cat.category */}
+                </button>
+
+                {/* Dropdown */}
+                <div className="absolute left-0 mt-2 w-56 bg-white border rounded-lg shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200">
+                  <ul className="py-2 text-sm text-gray-700">
+                    {cat.subCategories.map(
+                      (
+                        item,
+                        subIndex // ✅ changed from subcategories
+                      ) => (
+                        <li
+                          key={subIndex}
+                          className="px-10 py-2 hover:bg-gray-100 cursor-pointer"
+                        >
+                          {item}
+                        </li>
+                      )
+                    )}
+                  </ul>
+                </div>
               </div>
-            )}
+            ))}
           </div>
-        ))}
+        </div>
       </nav>
 
       {/* CATEGORY DRAWER - MOBILE */}
       <div
         className={`fixed inset-0 z-50 transform ${
           drawerOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out bg-black bg-opacity-40 md:hidden`}
+        } transition-transform duration-300 ease-in-out bg-amber-500 bg-opacity-40 md:hidden`}
         onClick={toggleDrawer}
       >
         <div

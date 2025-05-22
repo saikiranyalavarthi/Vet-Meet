@@ -59,7 +59,7 @@ const PetFoodList = () => {
       </h2>
 
       <div className="overflow-x-auto">
-        <div className="flex gap-6 overflow-x-auto lg:overflow-x-visible lg:flex-wrap justify-center m-2 my-0.5 lg:mx-4 sm:flex-wrap sm:justify-center">
+        <div className="flex gap-6 overflow-x-auto lg:overflow-x-visible lg:flex-wrap justify-center mx-0.2 my-0.5 lg:mx-4 sm:flex-wrap sm:justify-center">
           {petFoods.map((item, index) => (
             <motion.div
               key={item.id} // Corrected from deal.id to item.id

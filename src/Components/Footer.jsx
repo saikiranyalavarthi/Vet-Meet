@@ -146,7 +146,7 @@ const Footer = () => {
       </div>
 
       <div className="text-center text-sm mt-10">
-        &copy; {new Date().getFullYear()} Supertails. All rights reserved.
+        &copy; {new Date().getFullYear()} Vet&Meet. All rights reserved.
       </div>
     </footer>
   );

@@ -23,7 +23,7 @@ function PetBrands() {
       <h1 className="text-center font-bold text-[35px] font-[Gotham Rounded] mt-6 mb-2">
         Brands in Focus
       </h1>
-      <div className="flex gap-4 overflow-x-auto whitespace-nowrap px-4 py-1">
+      <div className="flex gap-4 overflow-x-auto whitespace-nowrap px-4 py-1 mx-0.5 md:mx-40">
         {products.map((product, index) => (
           <motion.div
             key={product.id}

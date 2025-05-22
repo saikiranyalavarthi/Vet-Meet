@@ -24,7 +24,7 @@ const DogBreeds = () => {
       </h1>
 
       <div className="overflow-x-auto scroll-smooth snap-x snap-mandatory">
-        <div className="flex space-x-4 md:space-x-6">
+        <div className="flex space-x-4 md:space-x-10 mx-0.5 md:mx-[200px]">
           {dogImages.map((dog, index) => (
             <div
               key={index}

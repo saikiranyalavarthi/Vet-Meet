@@ -45,7 +45,7 @@ const CategoriesGrid = () => {
         {categories.slice(0, 9).map((category, index) => (
           <div
             key={index}
-            className="bg-white shadow-md rounded-xl overflow-hidden hover:scale-105 transition transform duration-200"
+            className="bg-white shadow-md rounded-xl overflow-hidden hover:scale-105 transition transform duration-200 "
           >
             <img
               src={category.image}
@@ -60,7 +60,7 @@ const CategoriesGrid = () => {
       </div>
 
       {/* Desktop & Tablet view: all items */}
-      <div className="hidden sm:grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2">
+      <div className="hidden sm:grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-10 ">
         {categories.map((category, index) => (
           <div
             key={index}
