@@ -2,12 +2,12 @@ import React from "react";
 
 // Import images
 
-import dog2 from "../assets/dogs/dog2.png";
-import dog3 from "../assets/dogs/dog3.png";
-import dog4 from "../assets/dogs/dog4.png";
-import dog5 from "../assets/dogs/dog5.png";
-import dog6 from "../assets/dogs/dog6.png";
-import dog7 from "../assets/dogs/dog7.jpg";
+import dog2 from "../assets/Dogs/Dog2.png";
+import dog3 from "../assets/Dogs/Dog3.png";
+import dog4 from "../assets/Dogs/Dog4.png";
+import dog5 from "../assets/Dogs/Dog5.png";
+import dog6 from "../assets/Dogs/Dog6.png";
+import dog7 from "../assets/Dogs/Dog7.jpg";
 
 const dogImages = [
   { src: dog2, title: "Happy Hound" },
