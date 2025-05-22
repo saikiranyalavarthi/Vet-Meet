@@ -39,11 +39,32 @@ const CategoriesGrid = () => {
       <h2 className="text-4xl font-bold mb-6 text-center">
         Popular categories
       </h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6">
+
+      {/* Mobile view: only 9 items */}
+      <div className="grid grid-cols-3 gap-2 sm:hidden">
+        {categories.slice(0, 9).map((category, index) => (
+          <div
+            key={index}
+            className="bg-white shadow-md rounded-xl overflow-hidden hover:scale-105 transition transform duration-200"
+          >
+            <img
+              src={category.image}
+              alt={category.title}
+              className="w-full h-46 object-cover"
+            />
+            <div className="p-2 text-center">
+              <p className="text-sm font-bold font-serif">{category.title}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop & Tablet view: all items */}
+      <div className="hidden sm:grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2">
         {categories.map((category, index) => (
           <div
             key={index}
-            className=" bg-white shadow-md rounded-xl overflow-hidden hover:scale-105 transition transform duration-200"
+            className="bg-white shadow-md rounded-xl overflow-hidden hover:scale-105 transition transform duration-200"
           >
             <img
               src={category.image}

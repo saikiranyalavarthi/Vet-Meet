@@ -13,36 +13,43 @@ export default function Navbar() {
   return (
     <div
       style={{ backgroundColor: "#FFA500" }}
-      className="shadow-md p-4 flex justify-between items-center"
+      className="shadow-md p-4 flex flex-col md:flex-row md:justify-between items-center space-y-4 md:space-y-0 md:space-x-4"
     >
-      {/* Menu Button */}
-      <button className="p-2">
-        <svg
-          className="w-6 h-6 text-black"
-          viewBox="0 0 64 64"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <path d="M7 15h51" />
-          <path d="M7 32h51" />
-          <path d="M7 49h51" />
-        </svg>
-      </button>
+      {/* Top Row: Menu + Logo */}
+      <div className="flex items-center justify-between w-full md:w-auto">
+        {/* Menu Button */}
+        {/* <button className="p-2">
+          <svg
+            className="w-6 h-6 text-black"
+            viewBox="0 0 64 64"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="M7 15h51" />
+            <path d="M7 32h51" />
+            <path d="M7 49h51" />
+          </svg>
+        </button> */}
 
-      <img src="../assets/logos/meet.jpg" alt="Vet&Meet" />
-
-      {/* <h1>VET&MEET</h1> */}
+        {/* Logo */}
+        {/* <img
+          src="../assets/logos/meet.jpg"
+          alt="Vet&Meet"
+          className="h-8 ml-2"
+        /> */}
+        <h1>Vet&Meet</h1>
+      </div>
 
       {/* Search Bar */}
-      <div className="relative flex items-center w-1/2 mx-4">
+      <div className="relative flex items-center w-full md:w-1/2 px-2">
         <input
           type="search"
           placeholder="Search for products & brands"
           className="w-full border border-gray-300 rounded-md px-4 py-2 pl-10 focus:outline-none"
         />
         <svg
-          className="absolute left-3 w-5 h-5 text-gray-500"
+          className="absolute left-5 w-5 h-5 text-gray-500"
           viewBox="0 0 64 64"
           fill="none"
           stroke="currentColor"
@@ -53,7 +60,7 @@ export default function Navbar() {
       </div>
 
       {/* Action Icons */}
-      <div className="flex items-center space-x-4">
+      <div className="flex justify-around w-full md:w-auto space-x-6 md:space-x-4">
         {/* Profile */}
         <button className="flex flex-col items-center text-sm text-white hover:text-black">
           <FaUser className="text-xl" />
@@ -82,7 +89,6 @@ export default function Navbar() {
         <button className="flex flex-col items-center text-sm text-white hover:text-black relative">
           <FaShoppingCart className="text-xl" />
           <span>Cart</span>
-          {/* Optional cart count */}
           <span className="absolute top-0 right-0 text-xs bg-red-500 text-white rounded-full px-1">
             0
           </span>

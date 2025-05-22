@@ -1,7 +1,5 @@
 import React from "react";
 
-// Import images
-
 import dog2 from "../assets/Dogs/Dog2.png";
 import dog3 from "../assets/Dogs/Dog3.png";
 import dog4 from "../assets/Dogs/Dog4.png";
@@ -20,22 +18,22 @@ const dogImages = [
 
 const DogBreeds = () => {
   return (
-    <div className="p-6 mx-22">
-      <h1 className="text-4xl font-bold text-gray-800 mb-4 text-center">
+    <div className="p-4 md:p-6 mx-4 md:mx-22">
+      <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 text-center">
         Explore by Pets
       </h1>
 
-      <div className="overflow-x-auto">
-        <div className="whitespace-nowrap">
+      <div className="overflow-x-auto scroll-smooth snap-x snap-mandatory">
+        <div className="flex space-x-4 md:space-x-6">
           {dogImages.map((dog, index) => (
             <div
               key={index}
-              className="inline-block w-[200px] mr-4 rounded-xl overflow-hidden shadow-lg"
+              className="snap-center flex-shrink-0 w-56 md:w-[195px] rounded-xl overflow-hidden shadow-lg "
             >
               <img
                 src={dog.src}
                 alt={dog.title}
-                className="w-full h-60 object-cover"
+                className="w-full h-65 md:h-60 object-cover"
               />
               <div className="p-2 text-center font-semibold text-sm text-gray-700">
                 {dog.title}
