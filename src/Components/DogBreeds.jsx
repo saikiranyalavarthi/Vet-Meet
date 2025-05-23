@@ -18,13 +18,13 @@ const dogImages = [
 
 const DogBreeds = () => {
   return (
-    <div className="p-4 md:p-6 mx-4 md:mx-22">
+    <div className="p-4 md:p-6 mx-2 md:mx-15">
       <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 text-center">
         Explore by Pets
       </h1>
 
       <div className="overflow-x-auto scroll-smooth snap-x snap-mandatory">
-        <div className="flex space-x-4 md:space-x-10 mx-0.5 md:mx-[200px]">
+        <div className="flex space-x-2 md:space-x-8 mx-2 md:mx-2">
           {dogImages.map((dog, index) => (
             <div
               key={index}

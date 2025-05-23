@@ -137,7 +137,7 @@ export default function NavbarWithCategories() {
           <input
             type="search"
             placeholder="Search for products & brands"
-            className="w-full border border-white rounded-md px-4 py-2 pl-10 focus:outline-none"
+            className="w-full border border-black bg-white rounded-md px-4 py-2 pl-10 focus:outline-none"
           />
           <svg
             className="absolute left-5 w-5 h-5 text-gray-500"
@@ -191,8 +191,8 @@ export default function NavbarWithCategories() {
                 </button>
 
                 {/* Dropdown */}
-                <div className="absolute left-0 mt-2 w-56 bg-white border rounded-lg shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200">
-                  <ul className="py-2 text-sm text-gray-700">
+                <div className="absolute left-0 mt-2 w-56  bg-white border rounded-lg shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200">
+                  <ul className="py-2 text-sm text-gray-700 space-y-1 ">
                     {cat.subCategories.map(
                       (
                         item,
