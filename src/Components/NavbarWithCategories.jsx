@@ -10,81 +10,266 @@ const categories = [
   {
     name: "Cats",
     subCategories: [
-      "Food",
-      "Toys",
-      "Grooming",
-      "Accessories",
-      "Creamy Treats",
+      <h3 className="font-bold mb-2 ">Cat Food</h3>,
 
-      "Jerky Treats",
-      "Crunchy Treats",
-      "Kitty Licks",
-      "Kittos",
+      "  Dry Food",
+      "  Wet Food",
+      "  Kitten Food",
+      "  Premium Food",
 
-      "Dry Food",
-      "Wet Food",
-      "Kitten Food",
-      "Premium Food",
-      "Cat Treats",
-      "Creamy Treats",
-      "Jerky Treats",
-      "Crunchy Treats",
-      "Kitty Licks",
-      "Kittos",
+      <h3 className="font-bold mb-2">Cat Treats</h3>,
+      "  Creamy Treats",
+      "  Jerky Treats",
+      "  Crunchy Treats",
+      "  Kitty Licks",
+      "  Kittos",
 
-      "Litter",
-      "Litter Boxes & Toilets",
-      "Cleaning & Deodorizers",
-      "Scooper & Waste Disposal",
-      "Scented Litter",
-      "Unscented Litter",
-      "Flushable Litter",
-      "Scoopy #1 Cat Litter",
+      "Cat Litter Supplies",
+      "  Litter",
+      "  Litter Boxes & Toilets",
+      "  Cleaning & Deodorizers",
+      "  Scooper & Waste Disposal",
+      "  Scented Litter",
 
-      "Cat Teasers",
-      "Ball & Chaser Toys",
-      "Catnip Toys",
-      "Plush Toys",
-      "Cat Trees & Scratchers",
-      "Smart & Interactive Toys",
+      "Cat Toys",
+      "  Cat Teasers",
+      "  Ball & Chaser Toys",
+      "  Catnip Toys",
+      "  Plush Toys",
+      "  Cat Trees & Scratchers",
+      "  Smart & Interactive Toys",
+
+      "Pharmacy",
+      "  Dewormer",
+      "  Tick & Fleas",
+      "  Skin Care",
+      "  Joint Care",
+      "  Gut Health",
+      "  Cardiac Care",
+      "  Kidney Care",
+      "  Liver Care",
+
+      "Cat Walk & Travel Supplies",
+      "  GPS Tracker",
+      "  Collars",
+      "  Leashes",
+      "  Harnesses",
+      "  Bells & Tags",
+
+      "Cat Clothing",
+      "  Summer Clothing",
+      "  IPL Jerseys New",
+      "  Tshirts & Shirts",
+      "  Bandanas & Bowties",
+      "  Bells & Tags",
+      "  Kurtas",
+      "  Dresses",
+      "  Lehangas",
+      "  Jackets & Sweaters",
+      "  Hoodies",
+
+      "Bowls & Feeders",
+      "  Water Fountain",
+      "  Food & Water Dispenser",
+      "  Steel Bowls",
+      "  Printed Bowls",
+      "  Plastic Bowls",
+      "  Slow Feeders & Licky mats",
+
+      "Cat Grooming",
+      "  Shampoos & Conditioners",
+      "  Brushes & Combs",
+      "  Paw & Nail Care",
+      "  Ear & eye care",
+      "  Trimmers & Nail Clippers",
+      "  Grooming Tools",
+      "  Towels & Wipes",
+      "  Deodorants & Perfumes",
+      "  Anti tick & flea",
+
+      "Health & Wellness",
+      "  Supplements",
+      "  Anti Tick & Fleas",
+      "  Calming Aids",
+      "  Health Care Aids",
+      "  Deworming",
+      "  Prescription Diet",
+    ],
+  },
+
+  {
+    name: "Dogs",
+    subCategories: [
+      "Dog Food",
+      "  Dry Food",
+      "  Wet Food",
+      "  Puppy Food",
+      "  Premium Food",
+
+      "Dog Treats",
+      "  Creamy Treats",
+      "  Jerky Treats",
+      "  Crunchy Treats",
+      "  Doggy Licks",
+      "  Doggos",
+
+      "Dog Litter Supplies",
+      "  Litter",
+      "  Litter Boxes & Toilets",
+      "  Cleaning & Deodorizers",
+      "  Scooper & Waste Disposal",
+      "  Scented Litter",
+
+      "Dog Toys",
+      "  Dog Teasers",
+      "  Ball & Chaser Toys",
+      "  Dognip Toys",
+      "  Plush Toys",
+      "  Dog Trees & Scratchers",
+      "  Smart & Interactive Toys",
+
+      "Pharmacy",
+      "  Dewormer",
+      "  Tick & Fleas",
+      "  Skin Care",
+      "  Joint Care",
+      "  Gut Health",
+      "  Cardiac Care",
+      "  Kidney Care",
+      "  Liver Care",
+
+      "Dog Walk & Travel Supplies",
+      "  GPS Tracker",
+      "  Collars",
+      "  Leashes",
+      "  Harnesses",
+      "  Bells & Tags",
+
+      "Dog Clothing",
+      "  Summer Clothing",
+      "  IPL Jerseys New",
+      "  Tshirts & Shirts",
+      "  Bandanas & Bowties",
+      "  Bells & Tags",
+      "  Kurtas",
+      "  Dresses",
+      "  Lehangas",
+      "  Jackets & Sweaters",
+      "  Hoodies",
+
+      "Bowls & Feeders",
+      "  Water Fountain",
+      "  Food & Water Dispenser",
+      "  Steel Bowls",
+      "  Printed Bowls",
+      "  Plastic Bowls",
+      "  Slow Feeders & Licky mats",
+
+      "Dog Grooming",
+      "  Shampoos & Conditioners",
+      "  Brushes & Combs",
+      "  Paw & Nail Care",
+      "  Ear & eye care",
+      "  Trimmers & Nail Clippers",
+      "  Grooming Tools",
+      "  Towels & Wipes",
+      "  Deodorants & Perfumes",
+      "  Anti tick & flea",
+
+      "Health & Wellness",
+      "  Supplements",
+      "  Anti Tick & Fleas",
+      "  Calming Aids",
+      "  Health Care Aids",
+      "  Deworming",
+      "  Prescription Diet",
+    ],
+  },
+
+  {
+    name: "Pharmacy",
+    subCategories: [
+      "Multivitamins",
+      "Calcium supplements",
+      "Skin & coat supplements",
+      "Weaning Supplement",
+      "Calming & Anxiety",
+      "Immunity Boosters",
+      "Appetite Stimulants",
+      "Hematinic & Platelet boosters",
+      "Weight Management",
+      "Food Supplement",
+
+      "Prescription Diet",
+
+      "Gastro Intestinal",
+      "Cardiac",
+      "Weight Management",
+      "Joint & Mobility",
+      "Skin & Coat",
+      "Urinary",
+      "Recovery",
+      "Hypoallergenic",
+      "Prescription Diet",
+
+      "System wise Care",
+
+      "Skin care",
+      "Eye & ear care",
+      "Joint care",
+      "Liver care",
+      "Cardiac care",
+      "Kidney care",
+      "Digestive care",
+      "Respiratory care",
+      "Endocrine care",
+      "Preventive care",
+      "Oral Care",
+      "Wound Care",
+      "Pain Medication",
+
+      "Parasite Control",
+      "Tick & Flea",
+      "Dewormers",
+      "Anti-tick & flea",
+
+      "Antibiotics",
 
       "Dewormer",
-      "Tick & Fleas",
+      "Tick & Flea",
       "Skin Care",
       "Joint Care",
-      "Gut Health",
+      "Digestive Care",
       "Cardiac Care",
       "Kidney Care",
       "Liver Care",
       "Eye & Ear",
-      "Respiratory",
-      "Supplements",
+      "Food Supplement",
+      "Pain Medication",
       "Prescription Diet",
-      "Calming And Anxiety",
+      "Anti-biotics",
       "Oral Care",
-      "GPS Tracker",
-      "Collars",
-      "Leashes",
-      "Harnesses",
-      "Bells & Tags",
-      "Carriers & Travel Supplies",
-      "Cages & Crates",
-      "Summer Clothing",
-      "IPL Jerseys New",
-      "Tshirts & Shirts",
-      "Bandanas & Bowties",
-      "Bells & Tags",
-      "Kurtas",
-      "Dresses",
-      "Lehangas",
-      "Jackets & Sweaters",
-      "Hoodies",
+      "Wound Care",
+
+      "Dewormer",
+      "Tick & Flea",
+      "Skin Care",
+      "Joint Care",
+      "Digestive Care",
+      "Cardiac Care",
+      "Kidney Care",
+      "Liver Care",
+      "Ear & Eye Care",
+      "Respiratory",
+      "Supplement",
+      "Prescription Diet",
+      "Calming & Anxiety",
+      "Oral Care",
     ],
   },
 
-  { name: "Dogs", subCategories: ["Leash", "Food", "Training"] },
   { name: "Henlo", subCategories: ["Bird Feed", "Accessories"] },
-  { name: "Pharmacy", subCategories: ["Medicines", "Supplements"] },
+
   { name: "Shop By Breed", subCategories: ["Labrador", "Persian Cat"] },
   { name: "Consult a Vet", subCategories: ["Book Appointment", "Online Chat"] },
   { name: "Vet&Meet Clinic ", subCategories: ["Health Plans", "Checkups"] },
@@ -106,7 +291,7 @@ export default function NavbarWithCategories() {
       {/* TOP NAVBAR */}
       <div
         style={{ backgroundColor: "#FFA500" }}
-        className="shadow-md p-4 flex flex-col md:flex-row md:justify-between items-center space-y-4 md:space-y-0 md:space-x-4 sticky top-0 z-50"
+        className="shadow-md p-4 flex flex-col md:flex-row md:justify-between items-center space-y-4 md:space-y-0 md:space-x-4 sticky top-0 z-50 font-Nunito"
       >
         {/* Left: Logo */}
         <div className="flex items-center justify-between w-full md:w-auto">
@@ -181,33 +366,30 @@ export default function NavbarWithCategories() {
       </div>
 
       {/* CATEGORY NAV - DESKTOP - STICKY HOVERABLE DROPDOWNS */}
-      <nav className="bg-white shadow-md sticky top-0 z-50 hidden md:block ">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between sm">
-          <div className="hidden md:flex space-x-20 text-gray-800 font-medium">
+      {/* CATEGORY NAV - DESKTOP - STICKY HOVERABLE DROPDOWNS */}
+      <nav className="bg-white shadow-md sticky top-0 z-50 hidden md:block">
+        <div className="max-w-[1400px] mx-auto px-4 h-16 flex items-center justify-between">
+          <div className="flex space-x-15 text-gray-800 font-medium relative mx-25 ">
             {categories.map((cat, index) => (
               <div key={index} className="relative group">
-                <button className="hover:text-blue-600">
-                  {cat.name} {/* ✅ changed from cat.category */}
-                </button>
+                <button className="hover:text-blue-600">{cat.name}</button>
 
-                {/* Dropdown */}
-                <div className="absolute left-0 mt-2 w-56  bg-white border rounded-lg shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200">
-                  <ul className="py-2 text-sm text-gray-700 space-y-1 ">
-                    {cat.subCategories.map(
-                      (
-                        item,
-                        subIndex // ✅ changed from subcategories
-                      ) => (
-                        <li
-                          key={subIndex}
-                          className="px-10 py-2 hover:bg-gray-100 cursor-pointer"
-                        >
-                          {item}
-                        </li>
-                      )
-                    )}
-                  </ul>
-                </div>
+                {/* Mega Menu only for Cats, Dogs, Pharmacy */}
+                {["Cats", "Dogs", "Pharmacy"].includes(cat.name) &&
+                  cat.subCategories?.length > 0 && (
+                    <div className="absolute left-0 top-full w-[1150px] h-[500px] bg-white border-t border-gray-200 shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50 overflow-y-auto rounded-lg">
+                      <div className="grid grid-cols-5 gap-2 px-8 py-6">
+                        {cat.subCategories.map((item, subIndex) => (
+                          <div
+                            key={subIndex}
+                            className="text-sm text-gray-700 hover:text-blue-600 cursor-pointer"
+                          >
+                            {item}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
               </div>
             ))}
           </div>

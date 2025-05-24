@@ -35,7 +35,7 @@ function PetBrands() {
             <img
               src={product.image}
               alt={`Brand ${product.id}`}
-              className="w-full h-70 object-cover rounded-[30px] mb-3"
+              className="w-full h-60 object-cover rounded-[30px] mb-3"
               loading="lazy"
             />
           </motion.div>

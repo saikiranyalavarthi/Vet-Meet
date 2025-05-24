@@ -45,7 +45,7 @@ const CategoriesGrid = () => {
         {categories.slice(0, 9).map((category, index) => (
           <div
             key={index}
-            className="bg-white shadow-md rounded-xl overflow-hidden hover:scale-105 transition transform duration-200 "
+            className="bg-gradient-to-r from-[#fcff9e] to-[#c67700] shadow-md rounded-xl overflow-hidden hover:scale-105 transition transform duration-200 "
           >
             <img
               src={category.image}
@@ -72,7 +72,7 @@ const CategoriesGrid = () => {
               className="w-full h-46 object-cover"
             />
             <div className="p-2 text-center">
-              <p className="text-sm font-bold font-serif">{category.title}</p>
+              <p className="text-sm font-bold font-Nunito">{category.title}</p>
             </div>
           </div>
         ))}

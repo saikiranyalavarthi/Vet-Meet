@@ -112,11 +112,11 @@ const Footer = () => {
       </div>
 
       {/* Popular Searches */}
-      <div className="px-4 mt-10">
+      <div className="px-4 mt-10 max-w-full overflow-x-hidden">
         <h2 className="text-xl sm:text-2xl font-semibold mb-4">
           Popular Searches
         </h2>
-        <div className="text-sm leading-7 sm:leading-9 max-h-60 overflow-auto pr-2">
+        <div className="text-sm leading-7 sm:leading-9 max-h-60 pr-2 break-words">
           <p>
             Dog Food | Dog Collars Leashes Harnesses | Me-O| Cat Clothes | Cat
             Litter | Dog Raincoat | Dog Toys | Dog Beds | Veg Dog Food | Dog
@@ -140,7 +140,6 @@ const Footer = () => {
             Interactive Cat Toys | Catnip Toys | Clumping Cat Litter |
             Deodorizers & Litter Fresheners | Litter Boxes & Cat Toilets |
             Rabbit Products | Fish Food | Bird Food.
-            {/* Truncated for brevity */}
           </p>
         </div>
       </div>

@@ -1,10 +1,9 @@
 import React from "react";
-// import Navbar from "./Components/Navbar";
-// import CatProductsList from "./Components/CatProductsList";
+
 import BannerSection from "./Components/BannerSection";
-// import CategoryNav from "./Components/CategoryNav";
+
 // import Brands from "./Components/Brands";
-import PetSection from "./Components/PetBrands";
+
 import CategoriesGrid from "./Components/CategoriesGrid";
 import HealthProducts from "./Components/HealthProducts";
 import HealthTipsSection from "./Components/HealthTipsSection";
@@ -18,14 +17,9 @@ import NavbarWithCategories from "./Components/NavbarWithCategories";
 const App = () => {
   return (
     <div>
-      {/* <Navbar />
-      <CategoryNav /> */}
       <NavbarWithCategories />
-      {/* <CatProductsList /> */}
       <BannerSection />
-      {/* <Brands /> */}
       <PetBrands />
-
       <CategoriesGrid />
       <DogBreeds />
       <HealthProducts />
