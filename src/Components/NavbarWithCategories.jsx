@@ -5,6 +5,7 @@ import {
   FaPhoneAlt,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const categories = [
   {
@@ -271,7 +272,10 @@ const categories = [
   { name: "Henlo", subCategories: ["Bird Feed", "Accessories"] },
 
   { name: "Shop By Breed", subCategories: ["Labrador", "Persian Cat"] },
-  { name: "Consult a Vet", subCategories: ["Book Appointment", "Online Chat"] },
+  {
+    name: "Consult a Vet",
+    path: "/consult", // ✅ Direct route
+  },
   { name: "Vet&Meet Clinic ", subCategories: ["Health Plans", "Checkups"] },
   { name: "Summer Sale", subCategories: ["Discounted Items", "Bundles"] },
 ];
@@ -372,9 +376,17 @@ export default function NavbarWithCategories() {
           <div className="flex space-x-15 text-gray-800 font-medium relative mx-25 ">
             {categories.map((cat, index) => (
               <div key={index} className="relative group">
-                <button className="hover:text-blue-600">{cat.name}</button>
+                {cat.path ? (
+                  <Link
+                    to={cat.path}
+                    className="hover:text-blue-600 transition duration-150"
+                  >
+                    {cat.name}
+                  </Link>
+                ) : (
+                  <button className="hover:text-blue-600">{cat.name}</button>
+                )}
 
-                {/* Mega Menu only for Cats, Dogs, Pharmacy */}
                 {["Cats", "Dogs", "Pharmacy"].includes(cat.name) &&
                   cat.subCategories?.length > 0 && (
                     <div className="absolute left-0 top-full w-[1150px] h-[500px] bg-white border-t border-gray-200 shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50 overflow-y-auto rounded-lg">
