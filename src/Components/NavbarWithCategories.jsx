@@ -318,7 +318,9 @@ export default function NavbarWithCategories() {
               <line x1="3" y1="18" x2="21" y2="18" />
             </svg>
           </button>
-          <h1 className="text-lg font-bold text-white">Vet&Meet</h1>
+          <Link to="/">
+            <h1 className="text-lg font-bold text-white">Vet&Meet</h1>
+          </Link>
         </div>
 
         {/* Middle: Search */}
@@ -423,36 +425,48 @@ export default function NavbarWithCategories() {
           <nav>
             {categories.map((cat, index) => (
               <div key={index} className="mb-4">
-                <button
-                  onClick={() => toggleCategory(index)}
-                  className="flex justify-between items-center w-full text-left font-medium text-gray-800 hover:text-blue-600"
-                >
-                  {cat.name}
-                  <svg
-                    className={`w-5 h-5 transition-transform ${
-                      openIndex === index ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    viewBox="0 0 24 24"
+                {cat.path ? (
+                  <Link
+                    to={cat.path}
+                    className="block text-gray-800 font-medium hover:text-blue-600"
+                    onClick={toggleDrawer}
                   >
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
-                </button>
-                {openIndex === index && (
-                  <ul className="mt-2 pl-4 space-y-1 text-gray-700">
-                    {cat.subCategories.map((sub, i) => (
-                      <li
-                        key={i}
-                        className="cursor-pointer hover:text-blue-600"
+                    {cat.name}
+                  </Link>
+                ) : (
+                  <>
+                    <button
+                      onClick={() => toggleCategory(index)}
+                      className="flex justify-between items-center w-full text-left font-medium text-gray-800 hover:text-blue-600"
+                    >
+                      {cat.name}
+                      <svg
+                        className={`w-5 h-5 transition-transform ${
+                          openIndex === index ? "rotate-180" : ""
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        viewBox="0 0 24 24"
                       >
-                        {sub}
-                      </li>
-                    ))}
-                  </ul>
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                    </button>
+                    {openIndex === index && cat.subCategories && (
+                      <ul className="mt-2 pl-4 space-y-1 text-gray-700">
+                        {cat.subCategories.map((sub, i) => (
+                          <li
+                            key={i}
+                            className="cursor-pointer hover:text-blue-600"
+                          >
+                            {sub}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </>
                 )}
               </div>
             ))}
