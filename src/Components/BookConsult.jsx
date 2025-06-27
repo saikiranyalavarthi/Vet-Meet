@@ -72,7 +72,7 @@ const BookConsult = () => {
           </div>
 
           <a
-            href="https://wa.me/9731416417?text=Hello%2C%20I%20want%20to%20book%20a%20consultation"
+            href="https://wa.me/9390627367?text=Hello%2C%20I%20want%20to%20book%20a%20consultation"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-6 bg-orange-500 text-white text-lg font-semibold py-3 rounded-md shadow hover:bg-orange-600 text-center transition"
