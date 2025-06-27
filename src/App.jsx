@@ -29,7 +29,7 @@ const Home = () => {
       <PetFoodList />
       <HealthTipsSection />
       <PetFoodList />
-      <BookConsult />
+    
       <Footer />
     </>
   );
