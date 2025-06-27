@@ -25,6 +25,7 @@ import {
   FaDeaf,
 } from "react-icons/fa";
 import WhyConsultSection from "./WhyConsultSection";
+import PetHealthSection from "./PetHealthSection";
 
 const PetConsultation = () => {
   const contentRef = useRef(null);
@@ -205,6 +206,7 @@ const PetConsultation = () => {
         </div>
       </div>
       <WhyConsultSection />
+      <PetHealthSection />
     </>
   );
 };
