@@ -2,13 +2,13 @@ import React, { useEffect, useRef } from "react";
 import bannerImage from "../assets/consult/new.jpg";
 import { Link } from "react-router-dom";
 
-// ✅ Import doctor images
+// Doctor images
 import ashitha from "../assets/consult/Doctor1.jpg";
 import rashmi from "../assets/consult/Doctor2.jpg";
 import anu from "../assets/consult/Doctor3.jpeg";
 import bandhanpreet from "../assets/consult/Doctor4.jpg";
 
-// Import only the icons used
+// Icons
 import {
   FaUserCheck,
   FaCommentDots,
@@ -24,6 +24,8 @@ import {
   FaAppleAlt,
   FaDeaf,
 } from "react-icons/fa";
+
+// Placeholder components
 import WhyConsultSection from "./WhyConsultSection";
 import PetHealthSection from "./PetHealthSection";
 
@@ -55,6 +57,8 @@ const PetConsultation = () => {
       experience: "8+ Years",
       degree: "Veterinarian, MVSc PhD",
       image: ashitha,
+      buttonText: "Book Consultation",
+      buttonLink: "/BookConsult",
     },
     {
       name: "Dr. Rashmi S",
@@ -62,6 +66,8 @@ const PetConsultation = () => {
       experience: "6+ Years",
       degree: "MVSc PhD",
       image: rashmi,
+      buttonText: "Book Consultation",
+      buttonLink: "/BookConsult",
     },
     {
       name: "Dr. Anu GS",
@@ -69,6 +75,8 @@ const PetConsultation = () => {
       experience: "3+ Years",
       degree: "Associate Veterinarian, MVSc",
       image: anu,
+      buttonText: "Book Consultation",
+      buttonLink: "/BookConsult",
     },
     {
       name: "Dr. Bandhanpreet Kaur",
@@ -76,6 +84,8 @@ const PetConsultation = () => {
       experience: "6+ Years",
       degree: "MVSc",
       image: bandhanpreet,
+      buttonText: "Book Consultation",
+      buttonLink: "/BookConsult",
     },
   ];
 
@@ -129,16 +139,17 @@ const PetConsultation = () => {
             </span>
             get end-to-end support from our vets.
           </p>
-          <button className="mt-6 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full flex items-center space-x-2 transition mx-auto">
-            <Link to="/BookConsult" className="flex items-center space-x-2">
-              <span>Consult Now</span>
-              <span>➔</span>
-            </Link>
-          </button>
+          <Link
+            to="/BookConsult"
+            className="mt-6 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full flex items-center space-x-2 transition mx-auto w-fit"
+          >
+            <span>Consult Now</span>
+            <span>➔</span>
+          </Link>
         </div>
       </div>
 
-      {/* Feature Section */}
+      {/* Features */}
       <div className="w-full bg-blue-100 py-8 px-6 md:px-20">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-center">
           {features.map((item, index) => (
@@ -157,7 +168,7 @@ const PetConsultation = () => {
         </div>
       </div>
 
-      {/* Categories Section */}
+      {/* Categories */}
       <div className="py-10 px-6 md:px-20 bg-white" id="consult-section">
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
           Get trusted advice on your pet’s health
@@ -176,7 +187,7 @@ const PetConsultation = () => {
         </div>
       </div>
 
-      {/* Doctors Section */}
+      {/* Doctors */}
       <div className="bg-white py-12 px-6 md:px-20">
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-10">
           Meet Our Expert Vets
@@ -200,11 +211,18 @@ const PetConsultation = () => {
                 <p className="text-blue-600 font-medium">{doc.specialty}</p>
                 <p className="text-sm text-gray-500">{doc.experience}</p>
                 <p className="text-sm text-gray-600 mt-1">{doc.degree}</p>
+                <Link
+                  to={doc.buttonLink}
+                  className="inline-block mt-4 bg-orange-500 text-white py-2 px-4 rounded-full text-sm font-medium hover:bg-orange-600"
+                >
+                  {doc.buttonText}
+                </Link>
               </div>
             </div>
           ))}
         </div>
       </div>
+
       <WhyConsultSection />
       <PetHealthSection />
     </>

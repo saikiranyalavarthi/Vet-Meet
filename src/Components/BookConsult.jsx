@@ -1,153 +1,312 @@
-import React from "react";
-import doctorImage from "../assets/consult/Doctor2.jpg"; // replace with actual path
+import React, { useState } from "react";
+import ashitha from "../assets/consult/Doctor1.jpg";
+import rashmi from "../assets/consult/Doctor2.jpg";
+import anu from "../assets/consult/Doctor3.jpeg";
+import bandhanpreet from "../assets/consult/Doctor4.jpg";
+import Doctorimage from "../assets/consult/Doctor2.jpg";
+
+import { Link } from "react-router-dom";
 import {
   FaTruck,
   FaSmile,
   FaStethoscope,
   FaPills,
-  FaCheckCircle,
-  FaMoneyBill,
+  FaStar,
+  FaCalendarAlt,
+  FaClock,
+  FaMapMarkerAlt,
+  FaGraduationCap,
+  FaBriefcase,
+  FaDog,
 } from "react-icons/fa";
+import WhyConsultSection from "./WhyConsultSection";
+
+const timeSlots = [
+  { time: "9:00 AM", status: "available" },
+  { time: "11:00 AM", status: "available" },
+  { time: "3:00 PM", status: "available" },
+  { time: "6:00 PM", status: "available" },
+];
 
 const BookConsult = () => {
+  const [selectedTime, setSelectedTime] = useState(null);
+  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedFee, setSelectedFee] = useState("599");
+
+  const discountedTotal = parseInt(selectedFee) - 100;
+
+  const getStatusColor = (status) => {
+    if (status === "available") return "bg-green-100 text-green-700";
+    if (status === "booked") return "bg-yellow-100 text-yellow-700";
+    return "bg-red-100 text-red-700";
+  };
+
+  const handlePayment = () => {
+    if (!selectedDate || !selectedTime) {
+      alert("Please select date and time");
+      return;
+    }
+
+    const options = {
+      key: "rzp_test_1234567890abcdef",
+      amount: discountedTotal * 100,
+      currency: "INR",
+      name: "Vet&Meet",
+      description: "Pet Consultation Booking",
+      image: "https://yourdomain.com/logo.png",
+      handler: function (response) {
+        alert(
+          "Payment successful! Payment ID: " + response.razorpay_payment_id
+        );
+      },
+      prefill: {
+        name: "Pet Owner",
+        email: "test@example.com",
+        contact: "9876543210",
+      },
+      notes: {
+        booking_time: selectedTime,
+        booking_date: selectedDate,
+        fee: `₹${discountedTotal}`,
+      },
+      theme: {
+        color: "#f97316",
+      },
+    };
+
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+  };
+
+  const doctors = [
+    {
+      name: "Dr. Ashitha Suresh",
+      specialty: "Gynaecology & Obstetrics",
+      experience: "8+ Years",
+      degree: "Veterinarian, MVSc PhD",
+      image: ashitha,
+      buttonText: "Book Consultation",
+      buttonLink: "/BookConsult",
+    },
+    {
+      name: "Dr. Rashmi S",
+      specialty: "Gynaecology & Obstetrics",
+      experience: "6+ Years",
+      degree: "MVSc PhD",
+      image: rashmi,
+      buttonText: "Book Consultation",
+      buttonLink: "/BookConsult",
+    },
+    {
+      name: "Dr. Anu GS",
+      specialty: "General Medicine",
+      experience: "3+ Years",
+      degree: "Associate Veterinarian, MVSc",
+      image: anu,
+      buttonText: "Book Consultation",
+      buttonLink: "/BookConsult",
+    },
+    {
+      name: "Dr. Bandhanpreet Kaur",
+      specialty: "Parasitology",
+      experience: "6+ Years",
+      degree: "MVSc",
+      image: bandhanpreet,
+      buttonText: "Book Consultation",
+      buttonLink: "/BookConsult",
+    },
+  ];
+
   return (
-    <div className="bg-white text-gray-800">
-      {/* Top Section */}
+    <div className="bg-white text-gray-800 font-sans">
       <div className="flex flex-col md:flex-row gap-8 p-6 md:p-12">
-        {/* Image + Steps */}
         <div className="md:w-1/2">
           <div className="bg-blue-100 rounded-lg p-4 mb-4 text-center grid grid-cols-3 gap-2 text-sm font-medium text-gray-700">
-            <div>Pay & Book the consultation</div>
-            <div>Choose Video or Teleconsultation</div>
-            <div>Receive prescription after the call</div>
+            <div>Pay & Book</div>
+            <div>Choose Video/Phone</div>
+            <div>Get Prescription</div>
           </div>
           <img
-            src={doctorImage}
+            src={Doctorimage}
             alt="Doctor"
             className="rounded-xl w-full object-cover shadow"
           />
+          <div className="mt-4 space-y-2">
+            <div className="flex items-center gap-2 text-gray-600">
+              <FaMapMarkerAlt className="text-orange-500" />
+              <span>Bangalore, Hyderabad</span>
+            </div>
+            <div className="flex items-center gap-2 text-gray-600">
+              <FaBriefcase className="text-blue-600" />
+              <span>6 Years of Experience</span>
+            </div>
+            <div className="flex items-center gap-2 text-gray-600">
+              <FaDog className="text-lime-600" />
+              <span>Specialist in Pets</span>
+            </div>
+            <div className="flex items-center gap-2 text-gray-600">
+              <FaGraduationCap className="text-purple-600" />
+              <span>MVSc in Veterinary Sciences</span>
+            </div>
+          </div>
+          <div className="mt-6 text-sm text-gray-700">
+            <p className="mb-2 text-blue-500 font-semibold">
+              Dr. Pawsome is a compassionate and skilled veterinarian with years
+              of experience in treating pets across various conditions.
+            </p>
+            <p className="mb-2 text-blue-500 font-semibold">
+              Known for personalized care and clear communication, she ensures
+              both pets and their owners feel supported.
+            </p>
+            <p className="text-blue-500 font-semibold">
+              Her expertise in general checkups, chronic illnesses, and
+              preventive care has helped countless furry friends live healthier
+              lives.
+            </p>
+          </div>
         </div>
 
-        {/* Booking Info */}
         <div className="md:w-1/2 flex flex-col justify-between">
           <div>
             <h3 className="text-orange-600 font-semibold text-sm mb-1">
-              Services
+              Specialist in Pets
             </h3>
             <h1 className="text-2xl font-bold mb-2">
-              Instant Consultation (10 AM to 7 PM)
+              Dr. Pawsome – 6 Years Experience
             </h1>
-
-            <div className="border border-orange-400 rounded-md p-4 mt-4">
-              <h2 className="text-lg font-semibold mb-2">Book Consultation</h2>
-              <div className="flex items-baseline gap-3">
-                <span className="text-2xl font-bold text-green-700">₹299</span>
-                <span className="line-through text-gray-500 text-sm">₹499</span>
-                <span className="text-green-600 font-semibold text-sm">
-                  40% OFF
-                </span>
+            <div className="text-sm text-gray-600 mb-2">
+              Languages: Telugu, Hindi, Kannada, English
+            </div>
+            <div className="flex items-center gap-1 text-yellow-500 mb-4">
+              {[...Array(4)].map((_, i) => (
+                <FaStar key={i} />
+              ))}
+              <span className="text-gray-600 ml-2">(4.0)</span>
+            </div>
+            <div className="border border-orange-400 rounded-md p-4 mb-4">
+              <h2 className="text-lg font-semibold mb-2">Select Fee</h2>
+              <select
+                value={selectedFee}
+                onChange={(e) => setSelectedFee(e.target.value)}
+                className="w-full border p-2 rounded-md"
+              >
+                <option value="599">₹599 - Starter Consultation</option>
+                <option value="799">₹799 - Full Treatment Plan</option>
+              </select>
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-semibold mb-1">
+                <FaCalendarAlt className="inline-block mr-1" />
+                Choose a Date
+              </label>
+              <input
+                type="date"
+                className="border w-full p-2 rounded-md"
+                value={selectedDate}
+                onChange={(e) => setSelectedDate(e.target.value)}
+              />
+            </div>
+            <div className="mb-6">
+              <label className="block text-sm font-semibold mb-2">
+                <FaClock className="inline-block mr-1" />
+                Select Time Slot
+              </label>
+              <div className="grid grid-cols-2 gap-3">
+                {timeSlots.map((slot, i) => (
+                  <div key={i} className="flex flex-col items-start">
+                    <button
+                      disabled={slot.status !== "available"}
+                      onClick={() => setSelectedTime(slot.time)}
+                      className={`text-sm px-3 py-2 rounded-md w-full text-left ${
+                        selectedTime === slot.time
+                          ? "bg-orange-500 text-white"
+                          : getStatusColor(slot.status)
+                      } ${
+                        slot.status === "available"
+                          ? "hover:bg-orange-100"
+                          : "opacity-50 cursor-not-allowed"
+                      }`}
+                    >
+                      {slot.time}
+                    </button>
+                    <span className="text-xs mt-1 text-gray-500 ml-1">
+                      ({slot.status})
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
-
-            <div className="mt-4 border rounded-md px-4 py-3 flex items-center justify-between text-sm font-medium text-gray-700">
-              <div className="flex items-center gap-2">
-                <FaCheckCircle className="text-green-600" />
-                Bank Offers and coupons
+            <div className="mb-6 border border-gray-300 p-4 rounded-md shadow-sm">
+              <h2 className="text-lg font-semibold mb-2">Payment Summary</h2>
+              <div className="flex justify-between">
+                <span>Consultation Fee</span>
+                <span>₹{selectedFee}</span>
               </div>
-              <span className="text-orange-600 cursor-pointer">
-                Check offers ›
-              </span>
-            </div>
-
-            <div className="mt-4 space-y-2 text-gray-500 text-sm">
-              <div className="flex items-center gap-2">
-                <FaMoneyBill />
-                Currently, cash on delivery is not available on this product.
+              <div className="flex justify-between text-red-600">
+                <span>Discount</span>
+                <span>- ₹100</span>
               </div>
-              <div className="flex items-center gap-2">
-                <FaTruck />
-                Free delivery on orders above ₹599
+              <div className="flex justify-between mt-2 font-bold text-blue-600 border-t pt-2">
+                <span>Total</span>
+                <span>₹{discountedTotal}</span>
               </div>
+              <button
+                onClick={handlePayment}
+                className="mt-4 w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition"
+              >
+                Pay with UPI / Card / Netbanking
+              </button>
             </div>
           </div>
-
           <a
-            href="https://wa.me/9390627367?text=Hello%2C%20I%20want%20to%20book%20a%20consultation"
+            href={`https://wa.me/9390627367?text=Hello%2C%20I%20want%20to%20book%20a%20consultation%20on%20${selectedDate}%20at%20${selectedTime}%20for%20₹${selectedFee}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 bg-orange-500 text-white text-lg font-semibold py-3 rounded-md shadow hover:bg-orange-600 text-center transition"
+            className={`mt-4 bg-orange-500 text-white text-lg font-semibold py-3 rounded-md shadow text-center transition hover:bg-orange-600 ${
+              !selectedTime || !selectedDate
+                ? "opacity-50 pointer-events-none"
+                : ""
+            }`}
           >
-            Book via WhatsApp
+            Proceed to WhatsApp
           </a>
         </div>
       </div>
 
-      {/* Highlight Section (green icons) */}
-      <div className="bg-lime-100 py-8 px-4 md:px-20">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-lime-800 font-medium">
-          <div className="flex flex-col items-center">
-            <div className="bg-white rounded-full p-3 mb-2 shadow">
-              <FaTruck className="text-2xl" />
+      <div className="bg-white py-12 px-6 md:px-20">
+        <h2 className="text-3xl font-bold text-gray-800 text-center mb-10">
+          Meet Our Expert Vets
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          {doctors.map((doc, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+            >
+              <img
+                src={doc.image}
+                alt={doc.name}
+                className="w-full h-56 object-cover rounded-t-xl"
+              />
+              <div className="p-4 text-center">
+                <h3 className="text-lg font-semibold text-gray-800">
+                  {doc.name}
+                </h3>
+                <p className="text-blue-600 font-medium">{doc.specialty}</p>
+                <p className="text-sm text-gray-500">{doc.experience}</p>
+                <p className="text-sm text-gray-600 mt-1">{doc.degree}</p>
+                <Link
+                  to={doc.buttonLink}
+                  className="inline-block mt-4 bg-orange-500 text-white py-2 px-4 rounded-full text-sm font-medium hover:bg-orange-600"
+                >
+                  {doc.buttonText}
+                </Link>
+              </div>
             </div>
-            <p className="font-semibold">24hr Delivery</p>
-            <p className="text-sm">In 24 cities</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="bg-white rounded-full p-3 mb-2 shadow">
-              <FaSmile className="text-2xl" />
-            </div>
-            <p className="font-semibold">1,50,000+</p>
-            <p className="text-sm">Happy pet parents</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="bg-white rounded-full p-3 mb-2 shadow">
-              <FaStethoscope className="text-2xl" />
-            </div>
-            <p className="font-semibold">Complimentary vet consult</p>
-            <p className="text-sm">For every new member</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="bg-white rounded-full p-3 mb-2 shadow">
-              <FaPills className="text-2xl" />
-            </div>
-            <p className="font-semibold">Pet Pharmacy</p>
-            <p className="text-sm">Exclusive</p>
-          </div>
+          ))}
         </div>
       </div>
-
-      {/* Description Section */}
-      <div className="bg-gray-50 px-6 md:px-12 py-10 border-t">
-        <h2 className="text-2xl font-bold mb-4">
-          What happens after you book a consultation with Vet&Meet?
-        </h2>
-        <h3 className="text-lg font-semibold mb-2">For One Time</h3>
-        <ul className="list-disc list-inside text-gray-700 space-y-1 mb-6">
-          <li>Consult booking details will be shared on WhatsApp</li>
-          <li>
-            Get connected with your Pet Relationship Manager on WhatsApp by
-            clicking on "Get Started"
-          </li>
-          <li>
-            Your PRM will guide you through the process of connecting with a
-            vet.
-          </li>
-          <li>Receive treatment plan on WhatsApp and Email</li>
-        </ul>
-        <p className="text-gray-700 text-sm">
-          For more details, message us on WhatsApp at{" "}
-          <a
-            href="https://wa.me/9731416417"
-            className="text-blue-600 underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            123456789
-          </a>{" "}
-          and click on "Schedule a Consult." Our Pet Relationship Manager will
-          assist you. 🐾
-        </p>
-      </div>
+      <WhyConsultSection />
     </div>
   );
 };
