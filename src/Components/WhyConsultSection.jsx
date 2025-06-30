@@ -67,7 +67,7 @@ const WhyConsultSection = () => {
       </button>
 
       <h2 className="text-2xl md:text-3xl font-bold text-black mb-12">
-        Why consult with Supertails?
+        Why consult with Vet&Meet?
       </h2>
 
       <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-4 relative">
