@@ -1,23 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ashitha from "../assets/consult/Doctor1.jpg";
 import rashmi from "../assets/consult/Doctor2.jpg";
 import anu from "../assets/consult/Doctor3.jpeg";
 import bandhanpreet from "../assets/consult/Doctor4.jpg";
 import Doctorimage from "../assets/consult/Doctor2.jpg";
-
 import { Link } from "react-router-dom";
 import {
-  FaTruck,
-  FaSmile,
-  FaStethoscope,
-  FaPills,
+  FaMapMarkerAlt,
+  FaBriefcase,
+  FaDog,
+  FaGraduationCap,
   FaStar,
   FaCalendarAlt,
   FaClock,
-  FaMapMarkerAlt,
-  FaGraduationCap,
-  FaBriefcase,
-  FaDog,
 } from "react-icons/fa";
 import WhyConsultSection from "./WhyConsultSection";
 
@@ -35,6 +30,13 @@ const BookConsult = () => {
 
   const discountedTotal = parseInt(selectedFee) - 100;
 
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
   const getStatusColor = (status) => {
     if (status === "available") return "bg-green-100 text-green-700";
     if (status === "booked") return "bg-yellow-100 text-yellow-700";
@@ -47,8 +49,13 @@ const BookConsult = () => {
       return;
     }
 
+    if (!window.Razorpay) {
+      alert("Razorpay SDK not loaded. Please try again later.");
+      return;
+    }
+
     const options = {
-      key: "rzp_test_1234567890abcdef",
+      key: "rzp_live_cJVS9HwRfhBXk3", // Use test key if needed
       amount: discountedTotal * 100,
       currency: "INR",
       name: "Vet&Meet",
@@ -120,6 +127,7 @@ const BookConsult = () => {
   return (
     <div className="bg-white text-gray-800 font-sans">
       <div className="flex flex-col md:flex-row gap-8 p-6 md:p-12">
+        {/* Left Section */}
         <div className="md:w-1/2">
           <div className="bg-blue-100 rounded-lg p-4 mb-4 text-center grid grid-cols-3 gap-2 text-sm font-medium text-gray-700">
             <div>Pay & Book</div>
@@ -166,6 +174,7 @@ const BookConsult = () => {
           </div>
         </div>
 
+        {/* Right Section */}
         <div className="md:w-1/2 flex flex-col justify-between">
           <div>
             <h3 className="text-orange-600 font-semibold text-sm mb-1">
@@ -183,6 +192,8 @@ const BookConsult = () => {
               ))}
               <span className="text-gray-600 ml-2">(4.0)</span>
             </div>
+
+            {/* Fee Selection */}
             <div className="border border-orange-400 rounded-md p-4 mb-4">
               <h2 className="text-lg font-semibold mb-2">Select Fee</h2>
               <select
@@ -194,6 +205,8 @@ const BookConsult = () => {
                 <option value="799">₹799 - Full Treatment Plan</option>
               </select>
             </div>
+
+            {/* Date Picker */}
             <div className="mb-4">
               <label className="block text-sm font-semibold mb-1">
                 <FaCalendarAlt className="inline-block mr-1" />
@@ -206,6 +219,8 @@ const BookConsult = () => {
                 onChange={(e) => setSelectedDate(e.target.value)}
               />
             </div>
+
+            {/* Time Slots */}
             <div className="mb-6">
               <label className="block text-sm font-semibold mb-2">
                 <FaClock className="inline-block mr-1" />
@@ -236,6 +251,8 @@ const BookConsult = () => {
                 ))}
               </div>
             </div>
+
+            {/* Payment Summary */}
             <div className="mb-6 border border-gray-300 p-4 rounded-md shadow-sm">
               <h2 className="text-lg font-semibold mb-2">Payment Summary</h2>
               <div className="flex justify-between">
@@ -258,6 +275,8 @@ const BookConsult = () => {
               </button>
             </div>
           </div>
+
+          {/* WhatsApp Button */}
           <a
             href={`https://wa.me/9390627367?text=Hello%2C%20I%20want%20to%20book%20a%20consultation%20on%20${selectedDate}%20at%20${selectedTime}%20for%20₹${selectedFee}`}
             target="_blank"
@@ -273,6 +292,7 @@ const BookConsult = () => {
         </div>
       </div>
 
+      {/* Meet Our Vets Section */}
       <div className="bg-white py-12 px-6 md:px-20">
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-10">
           Meet Our Expert Vets
@@ -306,6 +326,7 @@ const BookConsult = () => {
           ))}
         </div>
       </div>
+
       <WhyConsultSection />
     </div>
   );
